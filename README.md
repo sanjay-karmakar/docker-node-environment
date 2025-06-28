@@ -123,30 +123,40 @@ Pushing code to the branch
 ```bash
 docker login
 ```
+<pre>
+Docker Hub Repository setup:
+  • Go to https://hub.docker.com/repositories
+  • Create a new public or private repository
+  • Use the exact name: docker-node-environment   (the name you used in docker-node-environment-deploy.yml file)
+</pre>
 
 ### Step 9: 🛠️ Build the Docker Image
+<pre>
+Docker Hub Repository setup:
+  • Make sure the image name is correctly tagged. Example:
+</pre>
 ```bash
-docker build -t sanjaykarmakar/docker-node-environment:latest .
+docker build -t sanjaykarmakar86/docker-node-environment:latest .
 ```
 
 ### Step 10: 🏷️ Tag with Version (optional but recommended)
 ```bash
-docker tag sanjaykarmakar/docker-node-environment:latest sanjaykarmakar/docker-node-environment:v1.0.0
+docker tag sanjaykarmakar86/docker-node-environment:latest sanjaykarmakar86/docker-node-environment:v1.0.0
 ```
 
 ### Step 11: 🚀 Push the Image to Docker Hub
 ```bash
 # Push the latest tag
-docker push sanjaykarmakar/docker-node-environment:latest
+docker push sanjaykarmakar86/docker-node-environment:latest
 
 # Push the versioned tag
-docker push sanjaykarmakar/docker-node-environment:v1.0.0
+docker push sanjaykarmakar86/docker-node-environment:v1.0.0
 ```
 
 ### Step 12: ✅ Done!
 ##### Now your image will be available for your team to pull and use:
 ```bash
-docker pull sanjaykarmakar/docker-node-environment:latest
+docker pull sanjaykarmakar86/docker-node-environment:latest
 ```
 
 
@@ -196,9 +206,9 @@ jobs:
           context: .
           push: true
           tags: |
-            sanjaykarmakar/docker-node-environment:latest
-            sanjaykarmakar/docker-node-environment:v1.0.0
-            sanjaykarmakar/docker-node-environment:${{ github.sha }}
+            sanjaykarmakar86/docker-node-environment:latest
+            sanjaykarmakar86/docker-node-environment:v1.0.0
+            sanjaykarmakar86/docker-node-environment:${{ github.sha }}
 ```
 
 ### Step 2: 🐳 Docker Hub Setup
@@ -253,7 +263,7 @@ Must have Docker installed on team members system.
 ##### No need to install Node.js, MongoDB manually! or set up anything locally. They can just:
 ##### Pulled the image
 ```bash
-docker pull sanjaykarmakar/docker-node-environment:latest
+docker pull sanjaykarmakar86/docker-node-environment:latest
 ```
 
 
@@ -261,7 +271,7 @@ docker pull sanjaykarmakar/docker-node-environment:latest
 ##### If you haven’t copied the code from the container, create a folder to mount your work into:
 ##### Copied files out of the container to local folder
 ```bash
-docker run --name temp-node-app -d sanjaykarmakar/docker-node-environment:latest
+docker run --name temp-node-app -d sanjaykarmakar86/docker-node-environment:latest
 
 docker cp <container_id>:/app ./my-node-app
 cd my-node-app
@@ -273,7 +283,7 @@ docker rm temp-node-app
 ### ✅ Step 4: You should run:
 ##### Every time you do the changes it will reflect
 ```bash
-docker run -d -p 3000:3000 -v "$(pwd)":/app -w /app sanjaykarmakar/docker-node-environment:latest
+docker run -d -p 3000:3000 -v "$(pwd)":/app -w /app sanjaykarmakar86/docker-node-environment:latest
 ```
 
 
@@ -282,31 +292,31 @@ docker run -d -p 3000:3000 -v "$(pwd)":/app -w /app sanjaykarmakar/docker-node-e
 
 ##### ✅ Steps Your Team Member Must Follow After Adding a New Package
 ```bash
-docker build -t sanjaykarmakar/docker-node-environment:latest .
+docker build -t sanjaykarmakar86/docker-node-environment:latest .
 ```
 <pre>
 OR
 </pre>
 
 ```bash
-docker build -t sanjaykarmakar/docker-node-environment:v1.0.2 .
+docker build -t sanjaykarmakar86/docker-node-environment:v1.0.2 .
 ```
 
 ##### Push the Updated Image to Docker Hub
 ```bash
-docker push sanjaykarmakar/docker-node-environment:latest
+docker push sanjaykarmakar86/docker-node-environment:latest
 ```
 <pre>
 Or with a version tag:
 </pre>
 ```bash
-docker push sanjaykarmakar/docker-node-environment:v1.1.1
+docker push sanjaykarmakar86/docker-node-environment:v1.1.1
 ```
 
 ### ✅ Other Team Members Can Now Pull the Latest Image
 ```bash
-docker pull sanjaykarmakar/docker-node-environment:latest
-docker run -d -p 3000:3000 sanjaykarmakar/docker-node-environment:latest
+docker pull sanjaykarmakar86/docker-node-environment:latest
+docker run -d -p 3000:3000 sanjaykarmakar86/docker-node-environment:latest
 ```
 
 ### 📌 In Short:
