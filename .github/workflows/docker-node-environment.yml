@@ -29,6 +29,6 @@ jobs:
           context: .
           push: true
           tags: |
-            sanjay-karmakar/docker-node-environment:latest
-            sanjay-karmakar/docker-node-environment:v1.0.0
-            sanjay-karmakar/docker-node-environment:${{ github.sha }}
+            sanjaykarmakar86/docker-node-environment:latest
+            sanjaykarmakar86/docker-node-environment:v1.0.0
+            sanjaykarmakar86/docker-node-environment:${{ github.sha }}
